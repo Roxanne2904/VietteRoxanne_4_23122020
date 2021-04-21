@@ -1,0 +1,22 @@
+{
+  "name": "starteronly",
+  "version": "1.0.0",
+  "description": "17/04/2021 // Todo: fermer la modale ---> ok;",
+  "main": "modal.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Roxanne2904/VietteRoxanne_4_23122020.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Roxanne2904/VietteRoxanne_4_23122020/issues"
+  },
+  "homepage": "https://github.com/Roxanne2904/VietteRoxanne_4_23122020#readme",
+  "devDependencies": {
+    "node.js": "^0.0.1-security"
+  }
+}
