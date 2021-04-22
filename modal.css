@@ -335,6 +335,9 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+#myForm[data-msg]::after {
+  content: attr(data-msg);
+}
 /* custom select styles */
 .custom-select {
   position: relative;

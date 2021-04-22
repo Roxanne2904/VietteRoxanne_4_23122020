@@ -38,7 +38,7 @@ myForm.addEventListener("submit", (event) => {
   let firstRegex = /^[a-zA-Z-\s]+$/;
   let lastRegex = /^[A-Z\s]+$/;
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  let birthdateRegex = /^0[1-9]|1[0-9]|2[0-9]|3[0-1]+[\/]+0[1-9]|1[0-2]+[\/]+19\d{2}|20[0-1]\d|202[0-1]$/;
+  let birthdateRegex = /^0[1-9]|1[0-9]|2[0-9]|3[0-1]+[\/]+0[1-9]|1[0-2]+[\/]+19\d{2}|20[0-1]?\d?|202[0-1]?$/;
   let quantityRegex = /^\d|[\d{2}]$/;
 
   //Prénom
@@ -119,15 +119,19 @@ myForm.addEventListener("submit", (event) => {
     const dataError = document.getElementsByClassName("formData");
     dataError[4].dataset.errorVisible = "false";
   }
-  if (
-    firstRegex.test(first.value) === true &&
-    lastRegex.test(last.value) === true &&
-    emailRegex.test(email.value) === true &&
-    birthdateRegex.test(birthdate.value) === true &&
-    quantityRegex.test(quantity.value) === true
-  ) {
-    alert("Merci, Votre réservation a bien été reçue :D ");
-  } else {
-    null;
-  }
+  const validate = () => {
+    if (
+      firstRegex.test(first.value) === true &&
+      lastRegex.test(last.value) === true &&
+      emailRegex.test(email.value) === true &&
+      birthdateRegex.test(birthdate.value) === true &&
+      quantityRegex.test(quantity.value) === true
+    ) {
+      alert("Merci :D ! Votre réservation a bien été reçue");
+      return true;
+    } else {
+      return false;
+    }
+  };
+  validate();
 });
