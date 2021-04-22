@@ -24,11 +24,24 @@ xBtn.addEventListener("click", (event) => {
   modalbg.style.display = "none";
 });
 //*******************************************/
-
+const validate = (event) => {
+  event.preventDefault();
+  const first = document.getElementById("first");
+  const last = document.getElementById("last");
+  const email = document.getElementById("email");
+  const birthdate = document.getElementById("birthdate");
+  const quantity = document.getElementById("quantity");
+  let inputs = [first, last, email, birthdate, quantity];
+  inputs.forEach((item) => {
+    const isValid = item.validity.valid;
+    console.log(item, isValid);
+  });
+};
 //formValid
 const myForm = document.getElementById("myForm");
 
 myForm.addEventListener("submit", (event) => {
+  return;
   const first = document.getElementById("first");
   const last = document.getElementById("last");
   const email = document.getElementById("email");
@@ -41,33 +54,40 @@ myForm.addEventListener("submit", (event) => {
   let birthdateRegex = /^0[1-9]|1[0-9]|2[0-9]|3[0-1]+[\/]+0[1-9]|1[0-2]+[\/]+19\d{2}|20[0-1]?\d?|202[0-1]?$/;
   let quantityRegex = /^\d|[\d{2}]$/;
 
+  //*TEST*//
+  const dataError = document.querySelectorAll(".formData");
+  dataError.forEach((a, b, c, d, e, f) => {
+    if (first.value.trim() === "" || firstRegex.test(first.value) === false) {
+      a.dataset.errorVisible = "true";
+      a.dataset.error =
+        "Doit contenir au minimun 2 caractères et uniquement des lettres ou des tirets!";
+      event.preventDefault();
+    } else if (firstRegex.test(first.value) === true) {
+      const dataError = document.getElementsByClassName("formData");
+      a.dataset.errorVisible = "false";
+      event.preventDefault();
+    }
+  });
+
   //Prénom
-  if (first.value.trim() === "") {
+  if (first.value.trim() === "" || firstRegex.test(first.value) === false) {
     const dataError = document.getElementsByClassName("formData");
     dataError[0].dataset.errorVisible = "true";
     dataError[0].dataset.error =
-      "Veuillez entrer 2 caractères ou plus pour le champ du prénom!";
-    event.preventDefault();
-  } else if (firstRegex.test(first.value) === false) {
-    const dataError = document.getElementsByClassName("formData");
-    dataError[0].dataset.error =
-      "Le prénom ne peut comporter que des lettres et des tirets!";
+      "Doit contenir au minimun 2 caractères et uniquement des lettres ou des tirets!";
     event.preventDefault();
   } else if (firstRegex.test(first.value) === true) {
     const dataError = document.getElementsByClassName("formData");
     dataError[0].dataset.errorVisible = "false";
+    event.preventDefault();
   }
 
   //Nom
-  if (last.value.trim() === "") {
+  if (last.value.trim() === "" || lastRegex.test(last.value) === false) {
     const dataError = document.getElementsByClassName("formData");
     dataError[1].dataset.errorVisible = "true";
     dataError[1].dataset.error =
-      "Veuillez entrer 2 caractères ou plus pour le champ du nom!";
-    event.preventDefault();
-  } else if (lastRegex.test(last.value) === false) {
-    const dataError = document.getElementsByClassName("formData");
-    dataError[1].dataset.error = "Le nom doit être en majuscule!";
+      "Doit contenir au minimun 2 caractères et uniquement des majuscules!";
     event.preventDefault();
   } else if (lastRegex.test(last.value) === true) {
     const dataError = document.getElementsByClassName("formData");
@@ -75,14 +95,10 @@ myForm.addEventListener("submit", (event) => {
   }
 
   //Email
-  if (email.value.trim() === "") {
+  if (email.value.trim() === "" || emailRegex.test(email.value) === false) {
     const dataError = document.getElementsByClassName("formData");
     dataError[2].dataset.errorVisible = "true";
-    dataError[2].dataset.error = "Il faut saisir une adresse mail!";
-    event.preventDefault();
-  } else if (emailRegex.test(email.value) === false) {
-    const dataError = document.getElementsByClassName("formData");
-    dataError[2].dataset.error = "L'adresse mail n'est pas valide!";
+    dataError[2].dataset.error = "Il faut saisir une adresse mail Valide!";
     event.preventDefault();
   } else if (emailRegex.test(email.value) === true) {
     const dataError = document.getElementsByClassName("formData");
@@ -105,33 +121,25 @@ myForm.addEventListener("submit", (event) => {
   }
 
   //quantity
-  if (quantity.value.trim() === "") {
+  if (
+    quantity.value.trim() === "" ||
+    quantityRegex.test(quantity.value) === false
+  ) {
     const dataError = document.getElementsByClassName("formData");
     dataError[4].dataset.errorVisible = "true";
-    dataError[4].dataset.error = "Il faut saisir une réponse!";
-    event.preventDefault();
-  } else if (quantityRegex.test(quantity.value) === false) {
-    const dataError = document.getElementsByClassName("formData");
-    dataError[4].dataset.error =
-      "La réponse n'est pas valide, il faut indiquer un chiffre ou un nombre";
+    dataError[4].dataset.error = "Il faut saisir un chiffre ou un nombre!";
     event.preventDefault();
   } else if (quantityRegex.test(quantity.value) === true) {
     const dataError = document.getElementsByClassName("formData");
     dataError[4].dataset.errorVisible = "false";
   }
-  const validate = () => {
-    if (
-      firstRegex.test(first.value) === true &&
-      lastRegex.test(last.value) === true &&
-      emailRegex.test(email.value) === true &&
-      birthdateRegex.test(birthdate.value) === true &&
-      quantityRegex.test(quantity.value) === true
-    ) {
-      alert("Merci :D ! Votre réservation a bien été reçue");
-      return true;
-    } else {
-      return false;
-    }
-  };
-  validate();
+
+  //location
+  //const locations = document.querySelectorAll(".checkbox-input");
+  //locations.forEach((items) => {
+  //if (items.length.checked == false) {
+  //dataError[5].dataset.errorVisible = "true";
+  //dataError[5].dataset.error = "Il faut saisir un chiffre ou un nombre!";
+  //}
+  //});
 });
