@@ -9,3 +9,7 @@
 21/04/2021
 
 //Avancement sur les messages d'erreurs + debut de la mise en place du msg de validation. 
+
+26/04/2021
+
+//conditions des inputs radios, en cours de réa.
