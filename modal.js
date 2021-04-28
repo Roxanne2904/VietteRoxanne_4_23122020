@@ -29,12 +29,8 @@ const last = document.getElementById("last");
 const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
-const arrayRadio = document.querySelectorAll(".checkbox-input[type='radio']");
-console.log(arrayRadio);
-const datasErrors = document.getElementsByClassName("formData");
 //********/
 const arrayInputsTxt = [first, last, email, birthdate, quantity];
-console.log(arrayInputsTxt);
 //*******************************************/
 //Validation du formulaire
 //*******************************************/
@@ -62,17 +58,25 @@ const validate = (event) => {
       items.parentElement.dataset.error = "";
     }
   });
-  //
-  arrayRadio.forEach((radios) => {
-    const radioIsValid = radios.checked;
-    console.log(radios, radioIsValid);
-    //
-    if (!radioIsValid) {
-      radios.parentElement.dataset.errorVisible = "true";
-      radios.parentElement.dataset.error = "Veuillez séléctionner une Ville";
-    } else {
-      radios.parentElement.dataset.errorVisible = "false";
-      radios.parentElement.dataset.error = "";
-    }
+  arrayInputsTxt.forEach((elmt) => {
+    elmt.addEventListener("change", () => {
+      event.stopPropagation();
+      elmt.parentElement.dataset.errorVisible = "false";
+    });
   });
+
+  const radioChecked = document.querySelector(
+    ".checkbox-input[type='radio']:checked"
+  );
+  const radios = document.querySelectorAll(".checkbox-input[type='radio']");
+  console.log(radios);
+
+  for (i = 0; i < radios.length; i++) {
+    if (radios[i].checked === false) {
+      radios[0].parentElement.dataset.error = "bruuuu";
+      radios[0].parentElement.dataset.errorVisible = "true";
+    } else {
+      radios[0].parentElement.dataset.errorVisible = "false";
+    }
+  }
 };
