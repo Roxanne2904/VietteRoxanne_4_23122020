@@ -65,6 +65,7 @@ const validate = (event) => {
     });
   });
 
+  //CHECKBOX RADIOS ....en cours de réa
   const radioChecked = document.querySelector(
     ".checkbox-input[type='radio']:checked"
   );
@@ -72,11 +73,26 @@ const validate = (event) => {
   console.log(radios);
 
   for (i = 0; i < radios.length; i++) {
-    if (radios[i].checked === false) {
-      radios[0].parentElement.dataset.error = "bruuuu";
-      radios[0].parentElement.dataset.errorVisible = "true";
+    if (radios[i].checked === true) {
+      console.log(radios[i].checked);
+      console.log("okayChecked");
     } else {
-      radios[0].parentElement.dataset.errorVisible = "false";
+      console.log(radios[i].checked);
+      console.log("notChecked");
+      radios[i].parentElement.dataset.errorVisible = "true";
+      radios[i].parentElement.dataset.error = "Veuillez choisir une ville";
     }
+  }
+
+  //CHECKBOX CHECK
+  const checkbox1 = document.querySelector("#checkbox1");
+  console.log(checkbox1);
+  if (!checkbox1.checked) {
+    event.preventDefault();
+    checkbox1.parentElement.dataset.error =
+      "Vous devez accepter les conditions d'utilisations";
+    checkbox1.parentElement.dataset.errorVisible = "true";
+  } else {
+    checkbox1.parentElement.dataset.errorVisible = "false";
   }
 };
