@@ -66,23 +66,29 @@ const validate = (event) => {
   });
 
   //CHECKBOX RADIOS ....en cours de réa
-  const radioChecked = document.querySelector(
-    ".checkbox-input[type='radio']:checked"
-  );
+  //******/
+  //const radioChecked = document.querySelector(
+  //".checkbox-input[type='radio']:checked"
+  //);
+  //*****/
   const radios = document.querySelectorAll(".checkbox-input[type='radio']");
   console.log(radios);
 
+  let checkboxchecked = false;
   for (i = 0; i < radios.length; i++) {
     if (radios[i].checked === true) {
-      console.log(radios[i].checked);
-      console.log("okayChecked");
-    } else {
-      console.log(radios[i].checked);
-      console.log("notChecked");
+      checkboxchecked = true;
+      return true;
+    } else if (checkboxchecked === false) {
       radios[i].parentElement.dataset.errorVisible = "true";
-      radios[i].parentElement.dataset.error = "Veuillez choisir une ville";
+      radios[i].parentElement.dataset.error = " nope";
+      return false;
     }
   }
+  //EVERY()
+  //const isItChecked = (currentValue) => currentValue.checked === true;
+  //console.log(radios.every(isItChecked));
+  //******/
 
   //CHECKBOX CHECK
   const checkbox1 = document.querySelector("#checkbox1");
@@ -95,4 +101,5 @@ const validate = (event) => {
   } else {
     checkbox1.parentElement.dataset.errorVisible = "false";
   }
+  return true;
 };
