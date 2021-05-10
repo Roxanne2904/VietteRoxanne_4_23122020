@@ -51,12 +51,7 @@ img {
   font-size: 20px;
   font-family: Roboto, sans-serif;
 }
-@media screen and (max-width: 1108px) {
-  .main-navbar {
-    float: left;
-    margin-top: 0.8rem;
-  }
-}
+
 .topnav a:hover {
   background-color: #ff0000;
   color: #ffffff;
@@ -73,46 +68,6 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {
-    position: relative;
-  }
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0.8rem;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .main-navbar {
-    float: right;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .topnav a {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-}
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -123,6 +78,7 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
+  position: relative;
 }
 
 .modal-btn {
@@ -204,8 +160,8 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  font-size: 1.35rem;
 }
-
 label {
   font-family: var(--font-default);
   font-size: 17px;
@@ -502,42 +458,23 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
-  .hero-section {
-    display: block;
-    box-shadow: unset;
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
   }
-  .hero-content {
-    background: #fff;
-    color: #000;
-    padding: 20px;
+  to {
+    opacity: 1;
   }
-  .hero-content::after {
-    content: unset;
-  }
-  .hero-content .btn-signup {
-    display: none;
-  }
-  .hero-headline {
-    font-size: 4.5rem;
-    white-space: normal;
-  }
-  .hero-text {
-    width: unset;
-    font-size: 1.5rem;
-  }
-  .hero-img img {
-    border-radius: 10px;
-    margin-top: 40px;
-  }
-  .hero-section > .btn-signup {
-    display: block;
-    margin: 32px auto 10px;
-    padding: 12px 35px;
-  }
-  .copyrights {
-    margin-top: 50px;
-    text-align: center;
+}
+/*****************/
+/*LE RESPONSIVE */
+/*****************/
+@media screen and (max-width: 1108px) {
+  .main-navbar {
+    float: left;
+    margin-top: 0.8rem;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -563,12 +500,118 @@ footer {
   }
 }
 
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
+@media screen and (max-width: 800px) {
+  .hero-section {
+    display: block;
+    box-shadow: unset;
   }
-  to {
-    opacity: 1;
+  .hero-content {
+    background: #fff;
+    color: #000;
+    padding: 20px;
+  }
+  .hero-content::after {
+    content: unset;
+  }
+  .hero-content .btn-signup {
+    display: none;
+  }
+  .hero-headline {
+    font-size: 4rem;
+    white-space: normal;
+  }
+  .hero-text {
+    width: unset;
+    font-size: 1.5rem;
+  }
+  .hero-img img {
+    border-radius: 10px;
+    margin-top: 40px;
+  }
+  .hero-section > .btn-signup {
+    display: block;
+    margin: 32px auto 10px;
+    padding: 12px 35px;
+  }
+  .copyrights {
+    margin-top: 50px;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .main-navbar {
+    float: right;
+    position: relative;
+    bottom: 0.6rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav.responsive {
+    display: flex;
+    flex-direction: column;
+  }
+  .topnav.responsive a {
+    font-size: 1rem;
+  }
+  .hero-headline {
+    font-size: 2.5rem;
+  }
+  .hero-text {
+    font-size: 1.1rem;
+  }
+  .hero-content {
+    min-width: 350px;
+  }
+  .msgValide h3 {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 350px) {
+  img {
+    width: 12.5rem;
+    padding-top: 0.5rem;
+  }
+  .hero-content {
+    min-width: inherit;
+  }
+  .hero-headline {
+    font-size: 1.7rem;
+  }
+  .hero-text {
+    font-size: 0.9rem;
+  }
+  .formData[data-error-visible="true"]::after {
+    font-size: 0.35em;
   }
 }

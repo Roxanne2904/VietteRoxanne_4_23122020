@@ -28,4 +28,16 @@
 
 //Reste à faire :
 // 1.Mettre le bouton à l'identique que dans le form (ajouter un newelt au modal-body ?);
-// 2.Mettre en place le responsive du form en version mobile);
+// 2.Mettre en place le responsive de la modal en version mobile);
+
+10.05.2021
+
+// Projet terminé;
+	- Le responsive de la modal à été réaliser avec JS. 
+	- les boutons close et open de la modal s'adaptent au responsive
+	- event.defaultPrevent() a été ajouter sur event "click"(//pour fermer la modal) pour défaire
+	  le comportement par défault de ce btn qui a un type = submit.(//voir fin de la validation formulaire)
+	- Le responsive de la page web a été réaliser en css avec les @mediasqueries;
+	  J'ai ranger cette partie à la fin du fichier css. 
+	- le Bouton 'fermé' reste le même que 'c'est partie', seule la valeur à été changé en JS.
+	- Validation du HTML5 et du CSS au W3C. 
