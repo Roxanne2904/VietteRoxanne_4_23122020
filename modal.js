@@ -43,6 +43,7 @@ const NormalContent = () => {
   modalBg.style.overflow = "auto";
   content.style.maxWidth = "500px";
   content.style.margin = "5% auto";
+  content.style.borderRadius = "10px";
   main.style.margin = "1px 20px 15px";
   copyrights.style.display = "block";
   responsiveMargin.style.marginBottom = "11px";
@@ -56,6 +57,7 @@ const mobileContent = () => {
   heroSection.style.display = "none";
   content.style.maxWidth = "inherit";
   content.style.margin = "0";
+  content.style.borderRadius = "10px 10px 0 0";
   main.style.margin = "0";
   copyrights.style.display = "none";
   responsiveMargin.style.marginBottom = "2rem";
@@ -254,7 +256,7 @@ const validate = (event) => {
     byeTxtLabel.style.opacity = "0";
     content.appendChild(newElt);
     newElt.innerHTML =
-      "<h3><span>Merci ! :D</span></br>Votre réservation a bien été réceptionné</h3>";
+      "<h3><span>Merci ! :D</span></br>Votre réservation a bien été réceptionnée</h3>";
     newElt.classList.add("msgValide");
     btnSubmit.value = "fermer";
     btnSubmit.addEventListener("click", (event) => {
