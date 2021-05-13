@@ -17,23 +17,23 @@ const content = document.querySelector(".content");
 const copyrights = document.querySelector(".copyrights");
 const main = document.querySelector("#main");
 const responsiveMargin = document.querySelector("#responsive-margin");
-//margin de "2rem" placer grâce à un "id" sur la dernière checkbox [type="checkbox"] pour le responsive;
+//margin de "2rem" placer grâce à un "id" sur la dernière checkbox [type="checkbox"] pour le responsive mobile;
 
 //*******************************************/
 // LES FONCTIONS
 //*******************************************/
 //*******************************************/
-//La fonction pour ouvrir la modal en version normal
+//La fonction pour ouvrir la modal en version normal (= desktop);
 function modalEvent() {
   modalBg.style.display = "block";
   modalBg.style.position = "fixed";
   modalBg.style.background = "rgba(26, 39, 156, 0.4)";
 }
 const isMobile = () => {
-  return window.innerWidth < 600;
+  return window.innerWidth <= 600;
 };
 const isTablet = () => {
-  return window.innerWidth < 800;
+  return window.innerWidth <= 800;
 };
 //*******************************************/
 //La fonction pour afficher le contenue du responsive " version normal"
@@ -100,7 +100,7 @@ const isClosed = () => {
 //*******************************************/
 //*******************************************/
 // launch modal event = ouvrir le modal
-let modalBgOpen = false; // on créer une variable pour définir si la modal est ouverte ou non
+let modalBgOpen = false; // On crée une variable pour définir si la modal est ouverte ou non
 modalBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     modalBgOpen = true; // lors du click, on la passe à 'true'
@@ -119,7 +119,7 @@ modalBtn.forEach((btn) => {
 });
 //*******************************************/
 //close modal event = fermer la modal
-closeBtn.addEventListener("click", (e) => {
+closeBtn.addEventListener("click", () => {
   modalBgOpen = false; // on repasse la variable à 'false', on ferme la modal;
   isClosed();
 });
@@ -135,7 +135,7 @@ const quantity = document.getElementById("quantity");
 const checkbox1 = document.querySelector("#checkbox1");
 const radios = document.querySelectorAll(".checkbox-input[type='radio']");
 console.log(radios); //NODELIST DES INPUTS RADIOS
-let radiosArray = Array.from(radios);
+let radiosArray = Array.from(radios); //Utilisation de la METHODE ARRAY.FROM();
 console.log(radiosArray); //NODELIST DEVIENT UN ARRAY
 
 //*******************************************/
@@ -185,7 +185,7 @@ const validate = (event) => {
     //*******************************************/
     //CHECKBOX RADIOS
     //*******************************************/
-    let checkboxRadiochecked = false;
+    let checkboxRadiochecked = false; // Pour le moment aucune radio n'est checké.
     arrayInputsAll[1][i].parentElement.dataset.errorVisible = "false";
     if (arrayInputsAll[1][i].checked === true) {
       checkboxRadiochecked = true;
