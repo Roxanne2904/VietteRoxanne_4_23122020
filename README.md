@@ -1,4 +1,6 @@
 # VietteRoxanne_4_23122020
+## I started this project on 08/04/2021
+*Training begins on 23/12/2020*
 
 17/04/2021
 // Todo: fermer la modale ---> ok;
