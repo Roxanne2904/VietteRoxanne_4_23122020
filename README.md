@@ -4,8 +4,6 @@
 
 _Training begins on 23/12/2020_
 
-[lien vers le site-GameOn-](https://roxanne2904.github.io/VietteRoxanne_4_23122020/)
-
 17/04/2021
 
 - Todo: fermer la modale ---> ok;
